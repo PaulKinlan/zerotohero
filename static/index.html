@@ -212,7 +212,7 @@
           Challenges of Mobile Web 
         </h3>
         <h4>Touch</h4>
-        <img src="images/example-cat.jpg">
+        <img src="images/touch-challenge.jpg">
       </article>
 
       <article class="fill">
@@ -220,7 +220,7 @@
           Challenges of Mobile Web 
         </h3>
         <h4>Screen Size</h4>
-        <img src="images/example-cat.jpg">
+        <img src="images/forms.jpg">
       </article>
       
       <article>
@@ -250,22 +250,6 @@
       <article class="full">
           <h2>It's all Javascript Baby</h2>
           <img src="images/node.png">
-      </article>
-
-      <article class="fill">
-        <h3>
-          Platform Support
-        </h3>
-        <h4>Lynx</h4>
-        <img src="images/lynx.png">
-      </article>
-
-      <article class="fill">
-        <h3>
-          Platform Support
-        </h3>
-        <h4>Not-so-smart-phone</h4>
-        <img src="images/example-cat.jpg">
       </article>
 
       <article class="fill">
@@ -312,22 +296,6 @@
   &lt;/body&gt;
 &lt;/html&gt;</pre>
         </section>
-      </article>
-      
-      <article class="fill">
-        <h3>
-          Demo
-        </h3>
-        <h4>Lynx</h4>
-        <img src="images/lynx.png">
-      </article>
-
-      <article class="fill">
-        <h3>
-          Demo
-        </h3>
-        <h4>Not-so-smart-phone</h4>
-        <img src="images/example-cat.jpg">
       </article>
       
       <article>
@@ -436,7 +404,7 @@ window.addEventListener("categorychanged", function() {
         <h3>HIJAX</h3>
         <h4>Supporting Old Browsers and Feature Phones</h4>
         <section><pre>$("a").click(function(e) {
-  // Fetch Article.
+  fetchArticle(this.id);
   e.preventDefault(); 
 });</pre></section>
             </article>
@@ -446,7 +414,6 @@ window.addEventListener("categorychanged", function() {
          <p><b>2000</b>: example.com/reader/categories/technology</p>
          <p><b>2006</b>: example.com/reader/#categories_technology</p>
          <p><b>2009</b>: example.com/reader/#!categories_technology</p>
-         <p><b>2011</b>: example.com/reader/categories/technology</p>
       </article>
       
       <article>
@@ -454,25 +421,23 @@ window.addEventListener("categorychanged", function() {
          <h4>2000 === 2011</h4>
          <p>example.com/reader/categories/technology</p>
          <div class="build">
-           <h2 class="to-build">The difference is History</h2>
+           <h2>The difference is History</h2>
          </div>
       </article>
       
-
-
       <article>
           <h3>HTML5 History</h3>
           <section>
           Change URL when UI changes
           <pre>window.pushState(
-    {}, "Business News", "/reader/business/
-  );</pre>
+  {}, "Business News", "/reader/business/"
+);</pre>
 
   Change UI when URL changes
   <pre>window.onpopstate = function(e) { 
   var url = document.location;
   if(url.indexOf("/business") > 0) 
-    // Get content 
+    fetchCategory(); 
 };</pre>
           </section>
         </article>
@@ -483,11 +448,11 @@ window.addEventListener("categorychanged", function() {
           <section>
           <pre>var app = new routes();
 app.get("/:category", function(req) {
-  alert("In " + req.params.category);
+  fetchCategory(req.params.category, "json");
 });
 
 app.get("/:category.:format", function(req) {
-  alert("format: " + req.params.format);
+  fetchCategory(req.params.category, req.params.format);
 });</pre>
 
         </section>
@@ -625,8 +590,7 @@ NETWORK:
       <article>
         <h3>Development</h3>
         <h4>jQuery.touch.js</h4>
-        <section><pre>var startEvent = Modernizer.touch ?
-   "touchstart":"mouseEnter",
+        <section><pre>var startEvent = Modernizr.touch ? "touchstart":"mouseEnter",
 
 window.addEventListener(startEvent
   function() {
@@ -642,7 +606,7 @@ window.addEventListener(startEvent
        <article class="fill">
           <h3>Challenge</h3>
           <h4>Screen Size</h4>
-          <img src="images/example-cat.jpg">
+          <img src="images/forms.jpg">
         </article>
         
          <article>
@@ -650,6 +614,8 @@ window.addEventListener(startEvent
             <section><pre>&lt;meta name="viewport" 
       content="width=device-width, target-densitydpi=160dpi, 
         minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</pre></section>
+            <img src="images/viewport1.png">
+            <img src="images/viewport2.png">
           </article>
 
         <article>
@@ -664,22 +630,12 @@ window.addEventListener(startEvent
           </section>
         </article>
       
-      <article>
-        <h3>
-          Viability of Mobile and HTML
-        </h3>
-        <p>HTML5 is here. Now</p>
-        <p>You can build apps that work everywhere</p>
-        <ul class="build">
-          <li>Different Interaction Styles</li>
-          <li>Speed</li>
-          <li>Offline and Flakey Connections</li>
-          <li>Discoverability</li>
-          <li>Touch</li>
-          <li>Screen Size</li>
-        </ul>
+      <article class="fill">
+        <h2>
+          You can build apps that work everywhere
+        </h2>
+        [TODO: Multi UI IMage]
       </article>
-      
       
       <article class="fill">
         <h3>
@@ -689,24 +645,43 @@ window.addEventListener(startEvent
         <img src="images/desktop.png">
       </article>
       
+     <article class="fill">
+        <h3>
+          Platform Support
+        </h3>
+        <h4>TV</h4>
+        <img src="images/tv.png">
+      </article>
       
-       <article class="fill">
-          <h3>
-            Platform Support
-          </h3>
-          <h4>TV</h4>
-          <img src="images/tv.png">
-        </article>
-       
+     <article>
+        <h3>
+          How you can build apps that work everywhere
+        </h3>
+        <ul>
+          <li>Different Interaction Styles</li>
+          <li>Speed</li>
+          <li>Offline and Flakey Connections</li>
+          <li>Discoverability</li>
+          <li>Touch</li>
+          <li>Screen Size</li>
+        </ul>
+      </article>
+     
+     <article>
+        <h3>
+          The Heroes
+        </h3>
+        <img src="images/heroes.png">
+      </article>
 
       <article>
         <h3>
-          Links
+          Thank you!
         </h3>
         <h4>Demo Code</h4>
         <ul>
           <li>Open Source:
-          http://goo.gl/ABC123</li>
+          http://bit.ly/kDilcy</li>
         </ul>
         <h4>Libraries</h4>
         <ul>
@@ -727,19 +702,6 @@ window.addEventListener(startEvent
           </li>
         </ul>
       </article>
-   
-      <article>
-        <h3>
-          Thank you!
-        </h3>
-        
-        <ul>
-          <li>
-            <a href='http://www.google.com'>google.com</a>
-        </ul>
-      </article>
-
     </section>
-
   </body>
 </html>

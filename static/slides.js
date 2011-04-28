@@ -7,7 +7,7 @@
   URL: http://go/io-html-slides
 */
 
-var PERMANENT_URL_PREFIX = 'http://io-2011-slides.googlecode.com/svn/trunk/';
+var PERMANENT_URL_PREFIX = '';
 
 var curSlide;
 
