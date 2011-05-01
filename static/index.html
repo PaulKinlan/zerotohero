@@ -411,15 +411,15 @@ window.addEventListener("categorychanged", function() {
       
       <article>
          <h3>History of History</h3>
-         <p><b>2000</b>: example.com/reader/categories/technology</p>
-         <p><b>2006</b>: example.com/reader/#categories_technology</p>
-         <p><b>2009</b>: example.com/reader/#!categories_technology</p>
+         <p><b>2000</b>: example.com/technology</p>
+         <p><b>2006</b>: example.com/#category_technology</p>
+         <p><b>2009</b>: example.com/#!category_technology</p>
       </article>
       
       <article>
          <h3>11 years of progress</h3>
          <h4>2000 === 2011</h4>
-         <p>example.com/reader/categories/technology</p>
+         <p>example.com/technology</p>
          <div class="build">
            <h2>The difference is History</h2>
          </div>
@@ -430,14 +430,14 @@ window.addEventListener("categorychanged", function() {
           <section>
           Change URL when UI changes
           <pre>window.pushState(
-  {}, "Business News", "/reader/business/"
+  {}, "Business News", "/business"
 );</pre>
 
   Change UI when URL changes
   <pre>window.onpopstate = function(e) { 
   var url = document.location;
   if(url.indexOf("/business") > 0) 
-    fetchCategory(); 
+    fetchCategory("business"); 
 };</pre>
           </section>
         </article>
@@ -527,8 +527,8 @@ NETWORK:
       
        <article>
           <h3>Server sees full URL</h3>
-          <p><s>example.com/reader/categories#technology</s></p>
-          <p>example.com/reader/categories/technology</p>          
+          <p><s>example.com/#technology</s></p>
+          <p>example.com/technology</p>          
       </article>
       
       <article class="fill">
@@ -622,11 +622,16 @@ window.addEventListener(startEvent
           <h3>Media Queries</h3>
           <section>
           <pre>@media screen and (orientation:landscape) {
-    article {
-      height: 1em !important;
-      overflow: hidden;
-    }
-  }</pre> 
+  article {
+    border: solid 1px red;
+  }
+}</pre> 
+
+<pre>@media screen and (orientation:portrait) {
+  article {
+    border: none;
+  }
+}</pre>
           </section>
         </article>
       
