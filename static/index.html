@@ -510,6 +510,15 @@ NETWORK:
           <li>WebSQL Database</li>
           <li>IndexedDB (Future)</li>
         </ul>
+        <section><pre>if(xhr.status == 200) {
+  fireEvent("goodconnection", {});
+  localStorage[url] = xhr.responseText; // &lt;- Save the data
+  callback(xhr.responseText);
+}
+else {
+  fireEvent("servererror", {});
+  callback(localStorage[url]); // &lt;- Use the data
+}</pre></section>
       </article>
       
       <article class="fill">
