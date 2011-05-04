@@ -49,17 +49,19 @@
           Zero to Hero.
         </h1>
         <p>
-        Mike Mahemoff (@mahemoff)<br/>Paul Kinlan (@paul_kinlan)
+        Mike Mahemoff (@mahemoff)<br/>Paul Kinlan (@paul_kinlan)<br/>
           <br>
-          May 11, 2011
+          May 11, 2011 <br>
+          #mobileweb
         </p>
       </article>
 
 
-      <article>
-        <h2>
+      <article class="fill">
+        <h3>
         HTML5 is here. And it's Mobile.
-        </h2>
+        </h3>
+        <img src="images/html5logo.png">
       </article>
 
       <article class="fill">
@@ -127,7 +129,7 @@
       
       <article class="fill">
         <h3>
-          Everywhere you would expect
+          Traditional Formfactors
         </h3>
         <ul>
           <li>Desktop</li>
@@ -139,14 +141,13 @@
 
       <article>
         <h3>
-          Everywhere you might not expect
+          Mobile Formfactors
         </h3>
         <ul>
           <li>Phones</li>
           <li>Smartphones</li>
           <li>Tablets</li>
-          <li>Consoles</li>
-          <li>TVs</li>
+          <li>Portable Consoles</li>
           <li>Personal Music Players</li>
           <li>eBook Readers</li>
         </ul>
@@ -180,7 +181,7 @@
           Challenges of Mobile Web 
         </h3>
         <h4>Different Interaction Styles</h4>
-        <img src="images/example-cat.jpg">
+        <img src="images/formfactor.jpg">
       </article>
       
      <article class="fill">
@@ -234,7 +235,7 @@
       <article>
       <h2>Sorry, No</h2>
       <h3>End of Presentation</h3>
-      <p>@MikeMahemoff<br/>@Paul_Kinlan</p>
+      <p>@mahemoff<br/>@Paul_Kinlan</p>
       </article>
 
       <article>
@@ -257,7 +258,7 @@
           Platform Support
         </h3>
         <h4>Smartphone</h4>
-        <img src="images/example-cat.jpg">
+        <img src="images/smartphone.png">
       </article>
 
       <article class="fill">
@@ -277,13 +278,30 @@
           Challenge
         </h3>
         <h4>Different Interaction Styles</h4>
-        <img src="images/example-cat.jpg">
+        <img src="images/formfactor.jpg">
+      </article>
+      
+      <article class="fill">
+        <h3>
+          Platform Support
+        </h3>
+        <h4>Lynx</h4>
+        <img src="images/lynx.png">
+      </article>
+      
+      <article class="fill">
+        <h3>
+          Platform Support
+        </h3>
+        <h4>Traditional Mobile</h4>
+        <img src="images/lynx.png">
       </article>
       
       <article>
         <h3>Progressive Enhancement: At its heart, a Web App is a Regular Website</h3>
         <section>
-<pre>&lt;html&gt;
+<pre>&lt;doctype&gt;
+&lt;html&gt;
   &lt;body&gt;
     &lt;article&gt;
       &lt;header&gt;
@@ -383,12 +401,34 @@ window.addEventListener("categorychanged", function() {
 }</pre></section>
       </article>
       
+       <article>
+          <h3>LESS - Common Colors</h3>
+          <section><pre>@bgcolor1: #788058;
+@color1: white; 
+@bgcolor2: #9E9B59;
+@color2: white; 
+@bgcolor3: #D1A53F;
+@color3: white;</pre></section>
+          <section><pre>article {
+  h2 {
+    background-color: @bgcolor1; 
+  }
+  
+  h2:hover {
+    background-color: @bgcolor1 + #111; 
+  }
+}</pre></section>
+</article>
+      
       <article class="fill">
         <h3>
          Challenge
         </h3>
         <h4>Speed</h4>
         <img src="images/speed.jpg">
+        <div class='source'>
+          Source: Larry Page
+        </div>
       </article>
       
       <article>
@@ -411,7 +451,7 @@ window.addEventListener("categorychanged", function() {
       
       <article>
          <h3>History of History</h3>
-         <p><b>2000</b>: example.com/technology</p>
+         <p><b>2000</b>: example.com/category/technology</p>
          <p><b>2006</b>: example.com/#category_technology</p>
          <p><b>2009</b>: example.com/#!category_technology</p>
       </article>
@@ -419,7 +459,7 @@ window.addEventListener("categorychanged", function() {
       <article>
          <h3>11 years of progress</h3>
          <h4>2000 === 2011</h4>
-         <p>example.com/technology</p>
+         <p>example.com/category/technology</p>
          <div class="build">
            <h2>The difference is History</h2>
          </div>
@@ -487,19 +527,20 @@ app.get("/:category.:format", function(req) {
       <article>
         <h3>AppCache</h3>
         <section><pre>CACHE MANIFEST                                                                                                                             
-
 # Timestamp {{now}}
  
 # CSS 
-{{#files}} 
- {{#css}}
-  {{name}}
- {{/css}}
-{{/files}}
+/css/base.css
+/css/tablet.css
+
+# SCRIPTS
+/scripts/controller.js
+/scripts/tablet/controller.js
 
 NETWORK:
 *
-</pre> </section>
+</pre></section>
+<section><pre>&lt;html manifest="app.cache"&gt;</pre></section>
 
       </article>
       
@@ -511,13 +552,12 @@ NETWORK:
           <li>IndexedDB (Future)</li>
         </ul>
         <section><pre>if(xhr.status == 200) {
-  fireEvent("goodconnection", {});
-  localStorage[url] = xhr.responseText; // &lt;- Save the data
+  window.localStorage[url] = xhr.responseText; // &lt;- Save the data
   callback(xhr.responseText);
 }
 else {
-  fireEvent("servererror", {});
-  callback(localStorage[url]); // &lt;- Use the data
+  // There has been an error, use the saved data.
+  callback(window.localStorage[url]);
 }</pre></section>
       </article>
       
@@ -545,29 +585,13 @@ else {
           Challenge
         </h3>
         <h4>Touch</h4>
-        <img src="images/touch.jpg">
+        <img src="images/touch-challenge.jpg">
       </article>
       
       <article class="fill">
        <h2>The Awesome Layer:
-         Mobile-Specific Techniques</h2>
+         Enabling touch</h2>
        <img src="images/phonelayer.png">
-      </article>
-      
-      <article class="fill">
-        <h3>
-          Demo
-        </h3>
-        <h4>Smartphone</h4>
-        <img src="images/example-cat.jpg">
-      </article>
-
-      <article class="fill">
-        <h3>
-          Demo
-        </h3>
-        <h4>Tablet</h4>
-        <img src="images/tablet.png">
       </article>
       
       <article>
@@ -577,8 +601,7 @@ else {
   y = ev.clientY;
 };</pre></section>
         <section><pre>el.ontouchend = function(ev) {
-  var dx = x - ev.clientX;
-  var dy = y - ev.clientY;
+  ...
 };</pre></section>
       </article>
       
@@ -599,17 +622,21 @@ else {
       <article>
         <h3>Development</h3>
         <h4>jQuery.touch.js</h4>
-        <section><pre>var startEvent = Modernizr.touch ? "touchstart":"mouseEnter",
+        <section><pre>var startEvent = Modernizr.touch ? "touchstart":"mouseEnter";
 
-window.addEventListener(startEvent
+window.addEventListener(startEvent,
   function() {
     ...
   }
 );</pre></section>
       </article>
       
-       <article>
-        <h3>Uncanny Vally</h3>
+      <article>
+        <h3>Beware the Uncanny Vally</h3>
+        <ul>
+          <li>Make it perfect</li>
+          <li>or - make it different</li>
+        </ul>
       </article>
       
        <article class="fill">
@@ -643,6 +670,20 @@ window.addEventListener(startEvent
 }</pre>
           </section>
         </article>
+        
+      <article>
+          <h3>
+            Challenges. What Challenges?
+          </h3>
+          <ul>
+            <li>Different Interaction Styles</li>
+            <li>Speed</li>
+            <li>Offline and Flakey Connections</li>
+            <li>Discoverability</li>
+            <li>Touch</li>
+            <li>Screen Size</li>
+          </ul>
+        </article>
       
       <article class="fill">
         <h2>
@@ -667,23 +708,11 @@ window.addEventListener(startEvent
         <img src="images/tv.png">
       </article>
       
-     <article>
-        <h3>
-          How you can build apps that work everywhere
-        </h3>
-        <ul>
-          <li>Different Interaction Styles</li>
-          <li>Speed</li>
-          <li>Offline and Flakey Connections</li>
-          <li>Discoverability</li>
-          <li>Touch</li>
-          <li>Screen Size</li>
-        </ul>
-      </article>
+     
      
      <article>
         <h3>
-          The Heroes
+          Distributed Development
         </h3>
         <img src="images/heroes.png">
       </article>
