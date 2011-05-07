@@ -19,6 +19,13 @@
     /* Your individual styles here, or just use inline styles if that’s
        what you want. */
     
+    li.tick:after {
+      content:url(images/tick.png);
+      padding-left: 5px;
+      width: 3em;
+      height: 3em;
+    }
+    
    .fill h4 {
      display: inline;
      position: absolute;
@@ -593,7 +600,7 @@ else {
       
       <article class="fill">
         <h3>Picture of search result</h3>
-        <img src="images/example-cat.jpg">
+        <img src="images/search.png">
       </article>
       
       <article>
@@ -662,12 +669,16 @@ window.addEventListener(startEvent,
 );</pre></section>
       </article>
       
-      <article>
+      <article class="fill">
         <h3>Beware the Uncanny Valley</h3>
-        <ul>
+        <ul style="color:white;">
           <li>Make it perfect</li>
           <li>Or make it different</li>
         </ul>
+        <img src="images/uncanny.jpg">
+        <div class='source' style="color: white;">
+          Source: http://www.flickr.com/photos/fabiantheblind/4148531974
+        </div>
       </article>
       
        <article class="fill">
@@ -682,24 +693,30 @@ window.addEventListener(startEvent,
          <article>
             <h3>Viewport</h3>
             <section><pre>&lt;meta name="viewport" 
-      content="width=device-width, target-densitydpi=160dpi, 
-        minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</pre></section>
+      content="width=device-width"&gt;</pre></section>
             <img src="images/viewport1.png">
             <img src="images/viewport2.png">
           </article>
+          
+          <article>
+              <h3>Viewport</h3>
+              <section><pre>&lt;meta name="viewport" 
+        content="width=device-width, target-densitydpi=160dpi, 
+          minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</pre></section>
+            </article>
 
         <article>
           <h3>Media Queries</h3>
           <section>
           <pre>@media screen and (orientation:landscape) {
-  article {
-    border: solid 1px red;
+  article img.thumbnail {
+    <strong>display: block;</strong>
   }
 }</pre> 
 
 <pre>@media screen and (orientation:portrait) {
-  article {
-    border: none;
+  article img.thumbnail {
+    <strong>display: none;</strong>
   }
 }</pre>
           </section>
@@ -710,12 +727,12 @@ window.addEventListener(startEvent,
             Challenges. What challenges?
           </h3>
           <ul>
-            <li>Different Interaction Styles</li>
-            <li>Speed</li>
-            <li>Offline and Flakey Connections</li>
-            <li>Discoverability</li>
-            <li>Touch</li>
-            <li>Screen Size</li>
+            <li class="tick">Different Interaction Styles</li>
+            <li class="tick">Speed</li>
+            <li class="tick">Offline and Flakey Connections</li>
+            <li class="tick">Discoverability</li>
+            <li class="tick">Touch</li>
+            <li class="tick">Screen Size</li>
           </ul>
         </article>
       
