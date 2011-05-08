@@ -491,14 +491,12 @@ q {
   display: block;
   font-size: 60px;
   line-height: 72px;
-  
   margin-left: 20px;
-  
-  margin-top: 100px;
-  margin-right: 150px;    
+  margin-top: 50px;
+  margin-right: 80px;  
 }
 q::before {
-  content: 'â€œ';
+  content: '“';
   
   position: absolute;
   display: inline-block;
@@ -510,7 +508,7 @@ q::before {
   color: rgb(192, 192, 192);
 }
 q::after {
-  content: 'â€';
+  content: '”';
 
   position: absolute;  
   margin-left: .1em;
@@ -526,7 +524,7 @@ div.author {
   margin-right: 150px;    
 }
 div.author::before {
-  content: 'â€”';
+  content: '—';
 }
 
 /* Size variants */
