@@ -104,10 +104,7 @@
         <h3>
         Mobile is awesome, right?
         </h3>
-        <q>In fact, during weekends, Google Maps via mobile receives more traffic than the desktop.</q>
-        <div class="author">
-          Merissa Meyer
-        </div>
+        <img src="images/popular.jpg">
         <h4>Popular</h4>
       </article>
       
@@ -233,10 +230,10 @@
       </article>
       
       <article class="fill">
-        <h3>
+        <h3 style="background-color: rgba(0,0,0, 0.5); color: white;">
            Challenges of mobile web 
         </h3>
-        <h4>Touch</h4>
+        <h4  style="background-color: rgba(0,0,0, 0.5); color: white;">Touch</h4>
         <img src="images/touch-challenge.jpg">
       </article>
 
@@ -618,16 +615,18 @@ else {
         <img src="images/discovery.jpg">
       </article>
       
-      <article class="fill">
-        <h3>Picture of search result</h3>
-        <img src="images/search.png">
-      </article>
-      
       <article>
-          <h3>Server sees full URL</h3>
+          <h3>Common URL structure</h3>
           <p><s>example.com/#category_technology</s></p>
           <p>example.com/category/technology</p>          
       </article>
+      
+      <article class="fill">
+        <h3>Search engines</h3>
+        <img src="images/search.png">
+      </article>
+      
+      
       
       <article class="fill">
         <h3>Native marketplaces</h3>
@@ -639,13 +638,13 @@ else {
         <img src="images/webstore.png">
       </article>
       
-      <article class="fill">
-        <h3>
-          Challenge
-        </h3>
-        <h4>Touch</h4>
-        <img src="images/touch-challenge.jpg">
-      </article>
+       <article class="fill">
+          <h3 style="background-color: rgba(0,0,0, 0.5); color: white;">
+             Challenge
+          </h3>
+          <h4  style="background-color: rgba(0,0,0, 0.5); color: white;">Touch</h4>
+          <img src="images/touch-challenge.jpg">
+        </article>
       
       <article class="fill">
        <h2>The Awesome Layer:
@@ -677,14 +676,11 @@ else {
 });</pre></section>
        </article>
         
-      <article class='smaller'>
+      <article>
         <h3>Debugging</h3>
         <h4>On desktop</h4>
         <section><pre>var startEvent = Modernizr.touch ? "touchstart":"mouseEnter";
-
-window.addEventListener(startEvent, function() {
-    ...
-});</pre>  
+window.addEventListener(startEvent, function() { ... });</pre>  
   <h4>Debugging on device</h4>
   <p>Attach USB</p>
   <section><pre>./adb devices
