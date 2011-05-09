@@ -26,6 +26,15 @@
       height: 3em;
     }
     
+    .slides > article::before {
+      font-size: 18px;
+      display: block;
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+      content: "Ask questions on: goo.gl/sHSgQ";
+    }
+    
    .fill h4 {
      display: inline;
      position: absolute;
@@ -311,7 +320,7 @@
       <article>
         <h3>A common base for every form factor</h3>
         <section>
-<pre>&lt;doctype html&gt;
+<pre>&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;body&gt;
     &lt;article&gt;
@@ -535,8 +544,8 @@ app.get("/:category", function(req) {
   fetchCategory(req.params.category, "json");
 });
 
-app.get("/:category.:format", function(req) {
-  fetchCategory(req.params.category, req.params.format);
+app.get("/:category/:article", function(req) {
+  fetchArticle(req.params.category, req.params.article);
 });</pre>
         </section>
       </article>
@@ -572,6 +581,7 @@ app.get("/:category.:format", function(req) {
       
       <article>
         <h3>AppCache</h3>
+        <section><pre>&lt;html manifest="cache.manifest"&gt;</pre></section>
         <section><pre>CACHE MANIFEST                                                                                                                             
 # Timestamp {{now}}
  
@@ -586,7 +596,7 @@ app.get("/:category.:format", function(req) {
 NETWORK:
 *
 </pre></section>
-<section><pre>&lt;html manifest="app.cache"&gt;</pre></section>
+
 
       </article>
       
@@ -720,8 +730,8 @@ window.addEventListener(startEvent, function() { ... });</pre>
           <article>
               <h3>Viewport</h3>
               <section><pre>&lt;meta name="viewport" 
-        content="width=device-width, target-densitydpi=160dpi, 
-          minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</pre></section>
+    content="width=device-width,
+      minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</pre></section>
             </article>
 
         <article>
@@ -809,6 +819,10 @@ window.addEventListener(startEvent, function() { ... });</pre>
             <strong>TouchLib</strong>: <a href="http://uxebu.com/blog/2010/04/27/touchscroll-a-scrolling-layer-for-webkit-mobile/">bit.ly/c1pxKA</a>
           <br/>
         </p>
+      </article>
+      
+      <article class='fill'>
+        <iframe src='https://www.google.com/moderator/#1/e=74f1b&t=74f1b.40'></iframe>
       </article>
     </section>
   </body>
