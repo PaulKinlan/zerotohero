@@ -312,9 +312,9 @@
       </article>
       
       <article>
-        <h3>Progressive Enhancement: At its heart, a web app is a regular website</h3>
+        <h3>A common base for every form factor</h3>
         <section>
-<pre>&lt;doctype&gt;
+<pre>&lt;doctype html&gt;
 &lt;html&gt;
   &lt;body&gt;
     &lt;article&gt;
@@ -347,9 +347,10 @@
       </article>
       
       <article>
-        <h3>Feature detection</h3>
+        <h3>Feature detection &amp; Progressive enhancement</h3>
         <section><pre>if (Modernizr.history)
   window.pushState(...)</pre></section>
+  Todo: image
       </article>
       
       <article>
@@ -418,7 +419,20 @@ window.addEventListener("categorychanged", function() {
       </article>
       
       <article>
-        <h3>LESS</h3>
+        <h3>Classy HTML</h3>
+        <section><pre>.articleState article.active{
+  overflow: visible;
+}
+
+.articleState article.active .story {
+  display: block;
+  padding: 0 1em 1em 0;
+  text-align: justify;
+}</pre></section>
+      </article>
+      
+      <article>
+        <h3>(Much) LESS CSS</h3>
         <section><pre>.articleState {
   article.active {
     overflow: visible;
@@ -443,7 +457,7 @@ window.addEventListener("categorychanged", function() {
   }
   
   h2:hover {
-    background-color: @bgcolor1 + #111; 
+    background-color: saturate(@bgcolor1, 10%); 
   }
 }</pre></section>
 </article>
@@ -475,13 +489,18 @@ window.addEventListener("categorychanged", function() {
   fetchArticle(this.id);
   e.preventDefault(); 
 });</pre></section>
-            </article>
+      </article>
       
       <article>
-         <h3>History of History</h3>
-         <p><b>2000</b>: example.com/category/technology</p>
-         <p><b>2006</b>: example.com/#category_technology</p>
-         <p><b>2009</b>: example.com/#!category_technology</p>
+        <h3>But....</h3>
+        <h4>Single page apps break the web</h4>
+      </article>
+      
+      <article>
+        <h3>History of History</h3>
+        <p><b>2000</b>: example.com/category/technology</p>
+        <p><b>2006</b>: example.com/#category_technology</p>
+        <p><b>2009</b>: example.com/#!category_technology</p>
       </article>
       
       <article>
@@ -522,7 +541,6 @@ app.get("/:category", function(req) {
 app.get("/:category.:format", function(req) {
   fetchCategory(req.params.category, req.params.format);
 });</pre>
-
         </section>
       </article>
 
@@ -660,17 +678,21 @@ else {
        </article>
         
       <article>
-        <h3>Development</h3>
-        <h4>jQuery.touch.js</h4>
+        <h3>Debugging</h3>
+        <h4>On desktop</h4>
         <section><pre>var startEvent = Modernizr.touch ? "touchstart":"mouseEnter";
 
-window.addEventListener(startEvent,
-  function() {
+window.addEventListener(startEvent, function() {
     ...
   }
-);</pre></section>
+);</pre>  
+  <h4>Debugging on device</h4>
+  <p>Attach USB</p>
+  <section><pre>./adb devices</pre></section>
+  <section><pre>./adb -s  123400000C  logcat| grep I/browser</pre></section>
+  </section>
       </article>
-      
+    
       <article class="fill">
         <h3>Beware the Uncanny Valley</h3>
         <ul style="color:white;">
