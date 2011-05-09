@@ -493,7 +493,7 @@ window.addEventListener("categorychanged", function() {
       
       <article>
         <h3>But....</h3>
-        <h4>Single page apps break the web</h4>
+        <h4>Don't single page apps break the web?</h4>
       </article>
       
       <article>
@@ -677,19 +677,18 @@ else {
 });</pre></section>
        </article>
         
-      <article>
+      <article class='smaller'>
         <h3>Debugging</h3>
         <h4>On desktop</h4>
         <section><pre>var startEvent = Modernizr.touch ? "touchstart":"mouseEnter";
 
 window.addEventListener(startEvent, function() {
     ...
-  }
-);</pre>  
+});</pre>  
   <h4>Debugging on device</h4>
   <p>Attach USB</p>
-  <section><pre>./adb devices</pre></section>
-  <section><pre>./adb -s  123400000C  logcat| grep I/browser</pre></section>
+  <section><pre>./adb devices
+./adb -s  <i>deviceid</i>  logcat| grep I/browser</pre></section>
   </section>
       </article>
     
@@ -797,11 +796,10 @@ window.addEventListener(startEvent, function() {
           Thank you!
         </h3>
         <p>Feedback: <a href="http://goo.gl/VRi5f">http://goo.gl/VRi5f</a></p>
-        <h4>Demo Code</h4>
-        <p>Open Source:
-          <a href="http://bit.ly/kDilcy">bit.ly/kDilcy</a></p>
+        <h4>Code (Open Source): 
+          <a href="http://bit.ly/kDilcy">bit.ly/kDilcy</a></h4>
         <h4>Libraries</h4>
-        <p>
+        <p >
             <strong>jQuery</strong>: <a href="http://jquery.com">jQuery.com</a>
       <br/>
             <strong>LessCSS</strong>: <a href="http://lesscss.org/">lesscss.org</a>
@@ -811,8 +809,8 @@ window.addEventListener(startEvent, function() {
          <br/>
             <strong>FormfactorJS</strong>: <a href="http://github.com/PaulKinlan/formfactor">github.com/PaulKinlan/formfactor</a>
          <br/>
-            <strong>LeviRoutes</strong>: <a href="http://github.com/PaulKinlan/leviroutes">github.com/PaulKinlan/leviroutes</a>
-            <strong>TouchLib</strong>: <a href="http://uxebu.com/blog/2010/04/27/touchscroll-a-scrolling-layer-for-webkit-mobile/">uxebu.com/blog/2010/04/27/touchscroll-a-scrolling-layer-for-webkit-mobile/</a>
+            <strong>LeviRoutes</strong>: <a href="http://github.com/PaulKinlan/leviroutes">github.com/PaulKinlan/leviroutes</a><br/>
+            <strong>TouchLib</strong>: <a href="http://uxebu.com/blog/2010/04/27/touchscroll-a-scrolling-layer-for-webkit-mobile/">bit.ly/c1pxKA</a>
           <br/>
         </p>
       </article>
